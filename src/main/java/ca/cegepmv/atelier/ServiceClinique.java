@@ -155,6 +155,7 @@ public class ServiceClinique {
         sb.append("Contact: ").append(proprietaire.getEmail()).append(" / ").append(proprietaire.getTelephone())
           .append("\n");
         sb.append("Nombre de visites: ").append(visites.size());
+
         return sb.toString();
     }
 
