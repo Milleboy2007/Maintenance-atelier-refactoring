@@ -27,7 +27,12 @@ jobs:
             run: chmod +x mvnw
           - name: Compilation du projet Maven
             run: ./mvnw -B compile
-
+            # .github/workflows/maven-build-master.yml (projet spring-petclinic-rest)
+          - name: Build and analyze
+            env:
+              GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+              SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+            run: ./mvnw -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=Milleboy2007_Maintenance-atelier-refactoring -Dsonar.organization=milleboy2007
 # TODO 1 : une fois vos tests de caractérisation écrits (README, Partie 2) et vos
 #          refactorings terminés (README, Partie 3), modifiez la dernière étape
 #          ci-dessus pour exécuter toute la suite de tests plutôt que la seule
